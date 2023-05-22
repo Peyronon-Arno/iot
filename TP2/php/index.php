@@ -12,8 +12,9 @@
     <div>
       <?php 
         session_start();
-        if(isset($_SESSION) && isset($_SESSION["nom"])){
-          echo("Vous êtez connecté en tant que : " . $_SESSION["nom"]);
+        if(isset($_SESSION) && isset($_SESSION["nom"]) && isset($_SESSION["age"])){
+          echo("<p>Vous êtez connecté en tant que : " . $_SESSION["nom"] . ".</p>");
+          echo("<p>Vous avez " . $_SESSION["age"] . " ans.</p>");
         } else{
           echo("Vous n'êtez pas connecté");
         }
