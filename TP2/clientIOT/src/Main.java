@@ -15,14 +15,14 @@ public class Main {
         String value = sc.nextLine();
         while(value != null) {
             if(value.equals("1")) {
-              URL url = new URL("http://localhost/php/index.php");
+              URL url = new URL("http://localhost/iot/TP2/php/index.php");
               getContentOfPage(url);
               break;
             }
             else if(value.equals("2")) {
               String nom = getNom();
               String age = getAge();
-              URL url = new URL("http://localhost/php/index.php?nom="+nom+"&age="+age);
+              URL url = new URL("http://localhost/iot/TP2/php/index.php?nom="+nom+"&age="+age);
               getContentOfPage(url);
             } else {
               System.out.println("Choix effectué non valide");

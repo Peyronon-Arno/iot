@@ -11,9 +11,9 @@
 
     <div>
       <?php 
-        if(isset($_GET["nom"]) && isset($_GET["age"])){
-          echo("<p>Vous êtez connecté en tant que : " . $_GET["nom"] . ".</p>");
-          echo("<p>Vous avez " . $_GET["age"] . " ans.</p>");
+        if(isset($_POST["nom"]) && isset($_POST["age"])){
+          echo("<p>Vous êtez connecté en tant que : " . $_POST["nom"] . ".</p>");
+          echo("<p>Vous avez " . $_POST["age"] . " ans.</p>");
         } else{
           echo("<p>Vous n'êtez pas connecté.</p>");
         }
