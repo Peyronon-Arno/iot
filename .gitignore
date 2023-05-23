@@ -1,2 +1,5 @@
-./TP2/clientIOT/.idea
-./TP2/clientIOT/out
+.idea/
+out/
+
+./TP2/clientIOT/.idea/
+./TP2/clientIOT/out/
