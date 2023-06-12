@@ -14,6 +14,7 @@
 #include "DHT.h"
 #include "LittleFS.h"
 #include <ESP8266mDNS.h>
+#include <ArduinoJson.h>
 
 #define DHTPIN 2
 #define DHTTYPE DHT11
@@ -81,11 +82,30 @@ void createEndpoint() {
 }
 
 void getTemperature() {
-  server.send(200, "text/plain", "Temperature de la salle :" + String(dht.readTemperature()) + " °C\r\n");
+  StaticJsonDocument<200> jsonDoc;
+
+  // Ajouter les données au JSON
+  jsonDoc["temperature"] = dht.readTemperature();
+
+  // Convertir le JSON en chaîne
+  String jsonString;
+  serializeJson(jsonDoc, jsonString);
+  server.send(200, "application/json", jsonString);
+
+  // server.send(200, "text/plain", "Temperature de la salle :" + String(dht.readTemperature()) + " °C\r\n");
 }
 
 void getHumidity() {
-  server.send(200, "text/plain", "Humidité de la salle :" + String(dht.readHumidity()) + " %\r\n");
+  StaticJsonDocument<200> jsonDoc;
+
+  // Ajouter les données au JSON
+  jsonDoc["humidity"] = dht.readTemperature();
+
+  // Convertir le JSON en chaîne
+  String jsonString;
+  serializeJson(jsonDoc, jsonString);
+  server.send(200, "application/json", jsonString);
+  // server.send(200, "text/plain", "Humidité de la salle :" + String(dht.readHumidity()) + " %\r\n");
 }
 
 void saveCredentials() {
